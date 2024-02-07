@@ -73,7 +73,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const typeCommentHandler = (e) => {
         const { target } = e;
-        target.getAttribute("id") === "user_name" ? (_userName = target.value) : (_userComment = target.value);
+        textValidator(target.value);
+        if (target.getAttribute("id") === "user_name") {
+            _userName = target.value;
+        } else {
+            _userComment = target.value;
+        }
         submitCommentButtonStatusChecker(_userName, _userComment);
 
         isEmptyInputsChecker(userName, _userName.trim().length, "grey");
@@ -115,6 +120,15 @@ window.addEventListener("DOMContentLoaded", () => {
         });
 
         comments.innerHTML = content;
+    };
+
+    const textValidator = (text) => {
+        text.split(" ").forEach((word) => {
+            if (word.length > 45) {
+                alert("WARNING! You are entering an incorrect word length. Please write the correct user name or comment!");
+                clearForm();
+            }
+        });
     };
 
     const clearForm = () => {

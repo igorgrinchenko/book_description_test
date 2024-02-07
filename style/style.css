@@ -34,6 +34,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 50%;
 }
 
 .book_title {
@@ -42,7 +43,6 @@ main {
 }
 
 .book_description {
-    max-width: 500px;
     font-size: 1.2rem;
 }
 
@@ -149,6 +149,7 @@ main {
     border-radius: 10px;
     max-height: 300px;
     overflow: auto;
+    overflow-x: hidden;
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: pre-wrap;
@@ -212,6 +213,9 @@ main {
     }
     .content_wrapper {
         flex-direction: column;
+    }
+    .main_content {
+        width: 100%;
     }
     .book_cover_wrapper {
         display: flex;
